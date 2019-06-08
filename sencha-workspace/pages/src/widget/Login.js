@@ -27,11 +27,6 @@ Ext.define('Site.widget.Login', {
 
         if (!loginModal) {
             return;
-        } else {
-            if (loginModal.dom.style.display === 'none') {
-                loginModal.setVisible(false);
-                loginModal.setStyle({display: undefined});
-            }
         }
 
         body.on('keyup', 'onBodyKeyup', me);
@@ -41,13 +36,13 @@ Ext.define('Site.widget.Login', {
     },
 
     hide: function() {
-        this.loginModal.hide();
+        this.loginModal.setStyle({display: 'none'});
         Ext.getBody().removeCls('blurred');
     },
 
     show: function() {
         Ext.getBody().addCls('blurred');
-        this.loginModal.show();
+        this.loginModal.setStyle({display: undefined});
     },
 
     onBodyKeyup: function(ev, t) {
