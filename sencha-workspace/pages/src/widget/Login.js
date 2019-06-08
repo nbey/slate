@@ -27,6 +27,11 @@ Ext.define('Site.widget.Login', {
 
         if (!loginModal) {
             return;
+        } else {
+            if (loginModal.dom.style.display === 'none') {
+                loginModal.setVisible(false);
+                loginModal.setStyle({display: undefined});
+            }
         }
 
         body.on('keyup', 'onBodyKeyup', me);
